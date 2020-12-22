@@ -9,7 +9,7 @@ router.param("userId", getUserById)
 router.get("/user/:userId", getUser)
 router.get("/users", getAllUsers)
 router.put("/user/:userId", updateUser)
-router.delete("/user/:userId",,deleteUser);
+router.delete("/user/:userId",deleteUser);
 
 
 module.exports = router;
