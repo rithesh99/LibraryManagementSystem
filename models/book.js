@@ -27,7 +27,8 @@ var bookSchema = new Schema(
     },
     lend: {
         type: String,
-        required: true
+        required: true,
+        default:"none"
     }
   },
   { timestamps: true }

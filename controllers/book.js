@@ -2,7 +2,7 @@ const Book = require("../models/book");
 
 //NOTE CREATE
 exports.createBook = (req, res) => {
-  const { title, imageUrl, tags, postedBy } = req.body;
+  const { name, imageUrl, author, publisher, category } = req.body;
 
   const book = new Book(req.body);
   book.save((err, book) => {
@@ -13,9 +13,11 @@ exports.createBook = (req, res) => {
     }
     res.json({
       _id: book._id,
-      title: book.title,
+      name: book.name,
       imageUrl: book.imageUrl,
-      postedBy: book.postedBy,
+      author: book.author,
+      publisher: book.publisher,
+      category: book.category
     });
   });
 };
@@ -69,7 +71,22 @@ exports.updateBook = (req, res) => {
       }
     );
   };
+  exports.updateLendBook = (req, res) => {
+    Book.findByIdAndUpdate(
+      { _id: req.book._id },
+      { $set: req.body },
+      { new: true, useFindAndModify: false },
+      (err, book) => {
+        if (err) {
+          return res.status(400).json({
+            error: "YOU ARE NOT AUTHORIZED TO UPDATE THIS USER",
+          });
+        }
   
+        res.json(book);
+      }
+    );
+  };
   
 //NOTE DELETE
 exports.deleteBook = (req, res) => { 

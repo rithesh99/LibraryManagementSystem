@@ -35,7 +35,7 @@ exports.getAllUsers = (req, res) => {
 exports.updateUser = (req, res) => {
     User.findByIdAndUpdate(
         {_id : req.profile._id},
-        {$push : req.body},
+        {$set : req.body},
         {new : true, useFindAndModify : false},
         (err, user)  => {
             if(err){
@@ -52,7 +52,7 @@ exports.updateUser = (req, res) => {
 }
 
 exports.deleteUser = (req, res) => { 
-    let user = req.user;
+    let user = req.profile;
     user.remove((err,user) => {
       if (err) {
         return res.status(400).json({
