@@ -51,7 +51,20 @@ exports.updateUser = (req, res) => {
     )
 }
 
-
+exports.deleteUser = (req, res) => { 
+    let user = req.user;
+    user.remove((err,user) => {
+      if (err) {
+        return res.status(400).json({
+          error: "FAILED TO DELTE THE USER",
+        });
+      }
+      res.json({
+        message: "DELETION WAS SUCCESS",
+        user,
+      });
+    });
+  };
 
 
  
