@@ -28,6 +28,7 @@ var bookSchema = new Schema(
     lend: {
         type: Object,
         required: true,
+        default:{}
     }
   },
   { timestamps: true }

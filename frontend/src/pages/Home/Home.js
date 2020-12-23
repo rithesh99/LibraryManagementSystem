@@ -5,9 +5,11 @@ import './Home.css'
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import { isAuthenticated } from '../../components/auth';
 
+
 function Home() {
 
     const [books, setBooks] = useState([])
+    const [search, setSearch] = useState("")
     const [lend, setLend] = useState(false)
     const {user, token} = isAuthenticated()
 
@@ -29,10 +31,26 @@ function Home() {
     return (
         <Base>
             <div className="search__field">
-                <input type="text"/>
+                <input type="text" onChange={e => setSearch(e.target.value)} />
+               
             </div>
             <div className="home">
-                {books.map((book,i) => {
+                {books.filter((val) => {
+                    if(search == ""){
+                        return val
+                    } else if (val.name.toLowerCase().includes(search.toLowerCase())){
+                        return val
+                    }
+                    else if (val.author.toLowerCase().includes(search.toLowerCase())){
+                        return val
+                    }
+                    else if (val.publisher.toLowerCase().includes(search.toLowerCase())){
+                        return val
+                    }
+                    else if (val.category.toLowerCase().includes(search.toLowerCase())){
+                        return val
+                    }
+                }).map((book,i) => {
                     return(
                         <div className="card1">
                             <div className="card__image">
@@ -45,7 +63,7 @@ function Home() {
                                 <p className="card__publishedBy">Published By: {book.publisher}</p>
                             
                              </div>
-                             {book.lend == "none" ? (
+                             {!book.lend ? (
                                  <div className="card__lend">
                                     <p className="card__lendBy">Available</p>
                                     <a className="card__lendBy__icon"  ><ShoppingCartIcon onClick={() => onLend(book._id)} /></a>

@@ -7,6 +7,7 @@ exports.createBook = (req, res) => {
   const book = new Book(req.body);
   book.save((err, book) => {
     if (err) {
+      console.log(err);
       return res.status(400).json({
         err: "NOT able to save book in DB",
       });
