@@ -1,0 +1,47 @@
+.card{
+    display: flex;
+    width: 50%;
+    border-radius: 20px;
+}
+.card__image{
+    padding: 20px 0px 20px 20px;
+}
+.card__image__pic{
+    height: 150px;
+    width: 150px;
+    border-radius: 20px;
+}
+.card__details{
+    padding: 20px 20px 20px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 10px 0px;
+}
+.card__name{
+    font-weight: 900;
+    font-family: Arial, Helvetica, sans-serif; 
+}
+.card__category{
+    font-size: 12px;
+    padding: 2px 5px;
+    color: white;
+    text-transform: uppercase;
+    background-color: blue;
+    text-align: center;
+    width:100%;
+}
+.card__author{
+    font-size: 13px;
+    text-align: right;
+    margin-top: -10px;
+}
+.card__publishedBy{
+    font-size: 13px;
+}
+.card__buttons{
+    text-align: center
+}
+.card__buttons__btn{
+    padding: 0px 10px;
+}

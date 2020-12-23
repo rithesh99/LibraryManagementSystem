@@ -10,7 +10,7 @@ const Base = ({children}) => {
           <Header />
           <div style={{ display: "flex", flex: 1}}>
           <Left/>
-          <div style={{ flex: 2 , minHeight: "100vh"}}>{children}</div>
+          <div style={{ flex: 2 , minHeight: "100vh", borderRadius:"20px"}}>{children}</div>
           <Right/>
           </div>
         </div>
