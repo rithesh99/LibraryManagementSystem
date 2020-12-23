@@ -29,7 +29,7 @@ function Profile() {
         getBooks()
         .then(res => {
           for (let i = 0; i < res.length; i++) {
-            if( res[i].lend == user.name){
+            if( res[i].lend._id == user._id){
               console.log(res[i]);
               let ans = res[i]
               books.push(ans.name)

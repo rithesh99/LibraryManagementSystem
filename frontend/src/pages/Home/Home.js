@@ -13,7 +13,7 @@ function Home() {
 
     const onLend = (id) => {
         // event.preventDefault()
-        updateBookLend(token,  id, user._id, {lend:user.name})
+        updateBookLend(token,  id, user._id, {lend: {"_id": user._id,"name": user.name}})
         .then(res => console.log(res))
         .then(res => setLend(!lend))
         .catch(err => console.log(err))
@@ -23,7 +23,7 @@ function Home() {
        getBooks()
        .then(res => setBooks(res))
        .catch(err => console.log(err))
-       console.log(books);
+    //    console.log(books);
     }, [lend])
 
     return (
@@ -52,7 +52,7 @@ function Home() {
                                 </div>
                              ): (
                                 <div className="card__lend">
-                                    <p className="card__lendBy">Lended by: {book.lend}</p>
+                                    <p className="card__lendBy">Lended by: {book.lend.name}</p>
                                 </div>
                              )}
                             
