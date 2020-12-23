@@ -5,12 +5,15 @@ import './Profile.css'
 import DeleteIcon from "@material-ui/icons/Delete";
 import EditIcon from '@material-ui/icons/Edit';
 import { Link, Redirect } from "react-router-dom";
+import { getBooks } from '../../books/helper';
 
 function Profile() {
     const {user}  = isAuthenticated()
     const [data, setData] = useState({});
     const [name, setName] = useState("")
     const [edit, setEdit] = useState(false)
+    const [books, setBooks] = useState([])
+    const [books1, setBooks1] = useState([])
 
     useEffect(() => {
         getUser(user._id)
@@ -23,6 +26,21 @@ function Profile() {
                 setName(res.name)
             }
         })
+        getBooks()
+        .then(res => {
+          for (let i = 0; i < res.length; i++) {
+            if( res[i].lend == user.name){
+              console.log(res[i]);
+              let ans = res[i]
+              books.push(ans.name)
+              console.log(books);
+            }
+            
+          }
+          setBooks1(books)
+        })
+        .catch(err => console.log(err))
+        
     }, [])
 
     const deleteP = (id) => {
@@ -86,7 +104,15 @@ function Profile() {
         
         
         </div>
-       
+        
+        <div className="profile__books">
+          <h2>Lended books: </h2>
+              {books1 && books1.map((book,i) => (
+                <div className="" key={i}>
+                  <p>{book}</p>
+                  </div>
+              ))}
+        </div>
 
       </div>
       </Base>
