@@ -1,0 +1,35 @@
+.profile{
+    padding: 20px;
+   
+}
+.profile__details{
+    display: flex;
+    border-radius: 20px;
+    background-color: #fff;
+}
+
+
+.profile__info{
+    display: flex;
+    flex: 0.8;
+    flex-direction: column;
+    margin-left: 30px;
+    height: auto;
+    justify-content: space-between;
+    padding: 10px;
+    
+}
+.profile__info__span{
+    font-size: 13px;
+    font-weight: 500;
+    background-color: #BB2CD9;
+    border-radius: 5px;
+    padding: 3px;
+    margin-right: 8px;
+}
+.profile__delete{
+    margin-top: 20px;
+    flex: 0.2;
+    /* margin-left: 100px; */
+    margin-right: -50px;
+}
