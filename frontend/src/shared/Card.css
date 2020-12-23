@@ -21,6 +21,7 @@
 .card__name{
     font-weight: 900;
     font-family: Arial, Helvetica, sans-serif; 
+    text-align: center;
 }
 .card__category{
     font-size: 12px;
