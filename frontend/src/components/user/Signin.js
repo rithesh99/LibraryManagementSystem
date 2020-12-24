@@ -119,7 +119,7 @@ const Signin = () => {
           </form>
   
           <p>
-          By continuing, you agree to Library's Conditions of Use and Privacy Notice.
+          By continuing, you agree to Library store's Conditions of Use and Privacy Notice.
           </p>
   
           <p style={{"text-align":"center"}}>

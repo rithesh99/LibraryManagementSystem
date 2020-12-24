@@ -18,7 +18,6 @@ function Left() {
           <div className="left__item"><GroupAddIcon style={{marginRight:"10px"}}/>Find Friends</div>
           <div className="left__item"><PeopleIcon style={{marginRight:"10px"}} />Groups</div>
           <div className="left__item"><StoreIcon style={{marginRight:"10px"}}/>Marketplace</div>
-          <div className="left__item"><OndemandVideoIcon style={{marginRight:"10px"}}/>Videos</div>
           <div className="left__item"><DateRangeIcon style={{marginRight:"10px"}}/>Events</div>
           <div className="left__item"><AccessAlarmIcon style={{marginRight:"10px"}}/>Memories</div>
           <div className="left__item"><BookmarkIcon style={{marginRight:"10px"}}/>Saved</div>

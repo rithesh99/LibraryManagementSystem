@@ -9,7 +9,7 @@ function Header() {
     <div className="header">
       <div className="header__logo">
         <img src={Logo} alt="" className="header__logo__pic" />
-        <h2 className="header__title">Library</h2>
+        <h2 className="header__title">Library Store</h2>
       </div>
       <div className="header__center"></div>
       <div className="header__navs">
