@@ -69,12 +69,12 @@ function Home() {
                                 <p className="card__publishedBy">Published By: {book.publisher}</p>
                             
                              </div>
-                             {!book.lend ? (
+                             {isAuthenticated() && !book.lend ? (
                                  <div className="card__lend">
                                     <p className="card__lendBy">Available</p>
                                     <a className="card__lendBy__icon"  ><ShoppingCartIcon onClick={() => onLend(book._id)} /></a>
                                 </div>
-                             ): (
+                             ): (book.lend && 
                                 <div className="card__lend">
                                     <p className="card__lendBy">Lended by: {book.lend.name}</p>
                                 </div>

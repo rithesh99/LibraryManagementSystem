@@ -61,7 +61,7 @@ export const updateBook = (token,bookId,userId,book) => {
 };
 
 export const updateBookLend = (token,bookId,userId,book) => {
-    return fetch(`${API}/book/${bookId}/${userId}`,{
+    return fetch(`${API}/books/${bookId}/${userId}`,{
         method: "PUT",
         headers:{
             Accept: "application/json",

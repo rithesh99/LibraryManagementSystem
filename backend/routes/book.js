@@ -20,7 +20,7 @@ router.get("/book/:bookId", getBook);
 
 //NOTE UPDATE
 router.put("/book/:bookId/:userId",isAdmin,updateBook); 
-router.put("/book/:bookId/:userId",updateLendBook); 
+router.put("/books/:bookId/:userId",updateLendBook); 
 
 //NOTE DELETE 
 router.delete("/book/:bookId/:userId", isAdmin,deleteBook);

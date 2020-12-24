@@ -18,9 +18,25 @@ function Header() {
             Home
           </a>
         )}
-        {isAuthenticated() && (
-          <a href="/add" className="header__link">
-            Add post
+
+        {isAuthenticated() && isAuthenticated().user.role === 1 && (
+          <a href="/admin/dashboard" className="header__link">
+            Dashboard
+          </a>
+        )}
+        {isAuthenticated() && isAuthenticated().user.role === 1 && (
+          <a href="/admin/books/add" className="header__link">
+            Add book
+          </a>
+        )}
+        {isAuthenticated() && isAuthenticated().user.role === 1 && (
+          <a href="/admin/books" className="header__link">
+            Books
+          </a>
+        )}
+        {isAuthenticated() && isAuthenticated().user.role === 1 && (
+          <a href="/admin/users" className="header__link">
+            Users
           </a>
         )}
         {isAuthenticated() && (
