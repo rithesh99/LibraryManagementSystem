@@ -6,20 +6,20 @@ import StorageIcon from "@material-ui/icons/Storage";
 import SettingsIcon from "@material-ui/icons/Settings";
 import HelpIcon from "@material-ui/icons/Help";
 
-import HomeIcon from '@material-ui/icons/Home';
+import HomeIcon from "@material-ui/icons/Home";
 
 function Right() {
   return (
     <div style={{ flex: 1, padding: "30px 40px 40px 40px" }}>
       <div className="right">
         <div className="right__section">
-          <a href="/profile" style={{textDecoration: "none"}}>
+          <a href="/profile" style={{ textDecoration: "none" }}>
             <div className="right__item">
               <AccountCircleIcon style={{ marginRight: "10px" }} />
               Account
             </div>
           </a>
-          <a href="/" style={{textDecoration: "none"}}>
+          <a href="/" style={{ textDecoration: "none" }}>
             <div className="right__item">
               <HomeIcon style={{ marginRight: "10px" }} />
               Home

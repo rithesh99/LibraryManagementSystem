@@ -19,21 +19,20 @@ exports.signup = (req, res) => {
     User.findOne({ name }, (err, name) => {
       if (name) {
         console.log(name);
-  
+
         return res.status(400).json({
           error: "User name already exists !!!",
         });
-      } 
-    })
-    
+      }
+    });
+
     if (data) {
       console.log(data);
 
       return res.status(400).json({
         error: "Email already exists !!!",
       });
-    }
-    else{
+    } else {
       const user = new User({ name, email, password: hash, photo, number });
       user.save((err, user) => {
         if (err) {
@@ -49,7 +48,6 @@ exports.signup = (req, res) => {
       });
     }
   });
-   
 };
 
 exports.signin = (req, res) => {
@@ -92,7 +90,6 @@ exports.signout = (req, res) => {
     message: "User signout successfully!!!",
   });
 };
-
 
 exports.isAdmin = (req, res, next) => {
   if (req.profile.role === 0) {

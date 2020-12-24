@@ -1,7 +1,6 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
-
 var userSchema = new Schema(
   {
     name: {
@@ -26,8 +25,8 @@ var userSchema = new Schema(
     },
     lend: {
       type: Array,
-      default: []
-    }
+      default: [],
+    },
   },
   { timestamps: true }
 );

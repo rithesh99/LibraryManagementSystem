@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, Redirect } from "react-router-dom";
-import logo from '../../assets/logo.png'
-import './helper/styles.css'
+import logo from "../../assets/logo.png";
+import "./helper/styles.css";
 
 import { signin, authenticate, isAuthenticated } from "./helper/helper";
 
@@ -11,35 +11,35 @@ const Signin = () => {
     password: "",
     error: "",
     loading: false,
-    didRedirect: false
+    didRedirect: false,
   });
 
   const { email, password, error, loading, didRedirect } = values;
   const { user } = isAuthenticated();
 
-  const handleChange = name => event => {
+  const handleChange = (name) => (event) => {
     setValues({ ...values, error: false, [name]: event.target.value });
   };
 
-  const onSubmit = event => {
+  const onSubmit = (event) => {
     event.preventDefault();
     setValues({ ...values, error: false, loading: true });
     signin({ email, password })
-      .then(data => {
+      .then((data) => {
         if (data.error) {
           setValues({ ...values, error: data.error, loading: false });
-          console.log("signin failed")
+          console.log("signin failed");
         } else {
           authenticate(data, () => {
             setValues({
               ...values,
-              didRedirect: true
+              didRedirect: true,
             });
-            console.log("signin successful")
+            console.log("signin successful");
           });
         }
       })
-      .catch(err => console.log(err));
+      .catch((err) => console.log(err));
   };
 
   const performRedirect = () => {
@@ -80,35 +80,27 @@ const Signin = () => {
     );
   };
 
-
   const signInForm = () => {
     return (
-        <div className="login">
+      <div className="login">
         <Link to="/">
-          <img
-            className="login__logo"
-            src={logo}
-          />
+          <img className="login__logo" src={logo} />
         </Link>
-  
+
         <div className="login__container">
           <h1>Login</h1>
-  
+
           <form>
             <h5>E-mail</h5>
-            <input
-              type="text"
-              value={email}
-              onChange={handleChange("email")}
-            />
-  
+            <input type="text" value={email} onChange={handleChange("email")} />
+
             <h5>Password</h5>
             <input
               type="password"
               value={password}
               onChange={handleChange("password")}
             />
-  
+
             <button
               type="submit"
               onClick={onSubmit}
@@ -117,13 +109,14 @@ const Signin = () => {
               Sign In
             </button>
           </form>
-  
+
           <p>
-          By continuing, you agree to Library store's Conditions of Use and Privacy Notice.
+            By continuing, you agree to Library store's Conditions of Use and
+            Privacy Notice.
           </p>
-  
-          <p style={{"text-align":"center"}}>
-          Not a user? <Link to="/signup">Register here</Link>
+
+          <p style={{ "text-align": "center" }}>
+            Not a user? <Link to="/signup">Register here</Link>
           </p>
           <Link to="/signup">
             <button className="login__registerButton">
@@ -131,7 +124,8 @@ const Signin = () => {
             </button>
           </Link>
         </div>
-      </div>);
+      </div>
+    );
   };
 
   return (

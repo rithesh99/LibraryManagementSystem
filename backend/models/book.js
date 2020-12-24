@@ -10,26 +10,26 @@ var bookSchema = new Schema(
       trim: true,
     },
     imageUrl: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
     category: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
     author: {
       type: String,
-      required: true
+      required: true,
     },
     publisher: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
     lend: {
-        type: Object,
-        required: true,
-        default:{}
-    }
+      type: Object,
+      required: true,
+      default: {},
+    },
   },
   { timestamps: true }
 );

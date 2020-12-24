@@ -1,35 +1,47 @@
 import React, { useState, useEffect } from "react";
 import ReactCrop from "react-image-crop";
 import "react-image-crop/dist/ReactCrop.css";
-import {isAuthenticated} from '../../auth/index'
-import { getBook, updateBook} from '../helper'
-import Base from '../../../shared/Base'
+import { isAuthenticated } from "../../auth/index";
+import { getBook, updateBook } from "../helper";
+import Base from "../../../shared/Base";
 import "./UpdateBook.css";
-import Success from '../Success'
+import Success from "../Success";
 
-const UpdateBook = ({match}) => {
-
-
+const UpdateBook = ({ match }) => {
   useEffect(() => {
     getBook(match.params.bookId)
-    .then(res => {
-      setValues({name: res.name, imageUrl: res.imageUrl, author: res.author, publisher: res.publisher, category: res.category})
-    })
-    .catch(err => console.log(err))
-  }, [])
+      .then((res) => {
+        setValues({
+          name: res.name,
+          imageUrl: res.imageUrl,
+          author: res.author,
+          publisher: res.publisher,
+          category: res.category,
+        });
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
   const { token, user } = isAuthenticated();
- 
+
   const [values, setValues] = useState({
     name: "",
     imageUrl: "",
     author: "",
     publisher: "",
-    category:"",
+    category: "",
     error: "",
     success: "",
   });
-  const { name, imageUrl, author, publisher, category, error, success } = values;
+  const {
+    name,
+    imageUrl,
+    author,
+    publisher,
+    category,
+    error,
+    success,
+  } = values;
 
   const [src, selectedFile] = useState(null);
 
@@ -73,22 +85,20 @@ const UpdateBook = ({match}) => {
     event.preventDefault();
     setValues({ ...values, error: "" });
     console.log("values", values);
-    updateBook(token, match.params.bookId,user._id, values).then((data) => {
+    updateBook(token, match.params.bookId, user._id, values).then((data) => {
       console.log("data", data);
-      if(data === undefined){
-        setValues({...values, error: "Image size is large!!!! "})
-      } 
-      else if (data.err) {
+      if (data === undefined) {
+        setValues({ ...values, error: "Image size is large!!!! " });
+      } else if (data.err) {
         setValues({ ...values, error: data.err });
-      }
-       else {
+      } else {
         setValues({
           ...values,
           name: "",
           imageUrl: "",
           author: "",
-          publisher:"",
-          category:"",
+          publisher: "",
+          category: "",
           error: "",
           success: "true",
         });
@@ -152,11 +162,7 @@ const UpdateBook = ({match}) => {
 
           <div className="addbook__title__section">
             <h2 className="addbook__title">Name</h2>
-            <input
-              value={name}
-              onChange={handleChange("name")}
-              className=""
-            />
+            <input value={name} onChange={handleChange("name")} className="" />
             <h2 className="addbook__title">Author</h2>
             <input
               onChange={handleChange("author")}
@@ -177,8 +183,6 @@ const UpdateBook = ({match}) => {
             />
           </div>
 
-          
-         
           {name && imageUrl && publisher && category && author && (
             <div className="addbook__submit">
               <button className="addbook__submit__btn" onClick={onSubmit}>

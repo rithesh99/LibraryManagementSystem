@@ -4,7 +4,6 @@ import Logo from "../../assets/logo.png";
 import { isAuthenticated, signout } from "../../components/auth/index";
 
 function Header() {
-  
   return (
     <div className="header">
       <div className="header__logo">
@@ -13,7 +12,7 @@ function Header() {
       </div>
       <div className="header__center"></div>
       <div className="header__navs">
-      {isAuthenticated() && (
+        {isAuthenticated() && (
           <a href="/" className="header__link">
             Home
           </a>

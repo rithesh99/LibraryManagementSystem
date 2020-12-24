@@ -13,8 +13,7 @@ const Signup = () => {
     success: "",
   });
 
-
-  const { name, email, password,error, success } = values;
+  const { name, email, password, error, success } = values;
 
   const handleChange = (name) => (event) => {
     setValues({ ...values, error: false, [name]: event.target.value });
@@ -36,7 +35,6 @@ const Signup = () => {
             error: "",
             success: true,
           });
-        
         }
       })
       .catch(() => {
@@ -49,15 +47,15 @@ const Signup = () => {
       <div className="login">
         <Link to="/">
           <img className="login__logo" src={logo} />
-        </Link> 
+        </Link>
 
         <div className="login__container">
           <h1>Create Account</h1>
-         
+
           <form>
             <h5>Your name</h5>
             <input type="text" value={name} onChange={handleChange("name")} />
-            
+
             <h5>E-mail</h5>
             <input type="text" value={email} onChange={handleChange("email")} />
 

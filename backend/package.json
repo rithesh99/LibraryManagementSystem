@@ -4,7 +4,8 @@
   "description": "A backend for library management system",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index"
+    "start": "nodemon index",
+    "pretty": "prettier --write \"./**/*.{js,jsx,json}\""
   },
   "author": "Rithesh",
   "license": "ISC",
@@ -19,6 +20,7 @@
     "express-validator": "^6.8.1",
     "formidable": "^1.2.2",
     "mongoose": "^5.11.8",
-    "nodemon": "^2.0.6"
+    "nodemon": "^2.0.6",
+    "prettier": "^2.2.1"
   }
 }

@@ -1,25 +1,33 @@
 import React, { useState, useEffect } from "react";
 import ReactCrop from "react-image-crop";
 import "react-image-crop/dist/ReactCrop.css";
-import {isAuthenticated} from '../../auth/index'
-import {createBook} from '../helper'
-import Base from '../../../shared/Base'
+import { isAuthenticated } from "../../auth/index";
+import { createBook } from "../helper";
+import Base from "../../../shared/Base";
 import "./AddBook.css";
-import Success from '../Success'
+import Success from "../Success";
 
 const AddBook = () => {
   const { token, user } = isAuthenticated();
- 
+
   const [values, setValues] = useState({
     name: "",
     imageUrl: "",
     author: "",
     publisher: "",
-    category:"",
+    category: "",
     error: "",
     success: "",
   });
-  const { name, imageUrl, author, publisher, category, error, success } = values;
+  const {
+    name,
+    imageUrl,
+    author,
+    publisher,
+    category,
+    error,
+    success,
+  } = values;
 
   const [src, selectedFile] = useState(null);
 
@@ -65,20 +73,18 @@ const AddBook = () => {
     console.log("values", values);
     createBook(token, user._id, values).then((data) => {
       console.log("data", data);
-      if(data === undefined){
-        setValues({...values, error: "Image size is large!!!! "})
-      } 
-      else if (data.err) {
+      if (data === undefined) {
+        setValues({ ...values, error: "Image size is large!!!! " });
+      } else if (data.err) {
         setValues({ ...values, error: data.err });
-      }
-       else {
+      } else {
         setValues({
           ...values,
           name: "",
           imageUrl: "",
           author: "",
-          publisher:"",
-          category:"",
+          publisher: "",
+          category: "",
           error: "",
           success: "true",
         });
@@ -142,29 +148,15 @@ const AddBook = () => {
 
           <div className="addbook__title__section">
             <h2 className="addbook__title">Name</h2>
-            <input
-              onChange={handleChange("name")}
-              className=""
-            />
+            <input onChange={handleChange("name")} className="" />
             <h2 className="addbook__title">Author</h2>
-            <input
-              onChange={handleChange("author")}
-              className=""
-            />
+            <input onChange={handleChange("author")} className="" />
             <h2 className="addbook__title">Publisher</h2>
-            <input
-              onChange={handleChange("publisher")}
-              className=""
-            />
+            <input onChange={handleChange("publisher")} className="" />
             <h2 className="addbook__title">Category</h2>
-            <input
-              onChange={handleChange("category")}
-              className=""
-            />
+            <input onChange={handleChange("category")} className="" />
           </div>
 
-          
-         
           {name && imageUrl && publisher && category && author && (
             <div className="addbook__submit">
               <button className="addbook__submit__btn" onClick={onSubmit}>
