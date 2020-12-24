@@ -12,6 +12,7 @@ import AddBook from './components/books/AddBook/AddBook';
 import UpdateBook from './components/books/UpdateBook/UpdateBook';
 import Books from './components/books/Books/Books';
 import Users from './components/user/Users/Users';
+import Dashboard from './pages/Dashboard/Dashboard';
 
 
 function App() {
@@ -24,7 +25,7 @@ function App() {
 
       <PrivateRoute path="/profile" exact component={Profile} />
 
-      <AdminRoute path="/admin/dashboard"/>
+      <AdminRoute path="/admin/dashboard" exact component={Dashboard}/>
       <AdminRoute path="/admin/books/add" exact component={AddBook} />
       <AdminRoute path="/admin/books/edit/:bookId" exact component={UpdateBook} />
       <AdminRoute path="/admin/books" exact component={Books} /> 

@@ -1,0 +1,42 @@
+.dashboard{
+    display: flex;  
+    padding: 30px 20px;
+}
+.dashboard__books{
+    flex: 0.5;
+    padding: 10px;
+}
+.dashboard__book{
+    background-color: #fff;
+    margin-top: 15px;
+    width: 150px;
+    border-radius: 20px;
+    padding-bottom: 5px;
+}
+.dashboard__books__image__pic{
+    height: 150px;
+    width: 150px;
+    border-radius: 20px;
+}
+.dashboard__books__details{
+    text-align: center;
+}
+.dashboard__books__name{
+    font-weight: 600;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.dashboard__more{
+    text-align: center;
+    padding: 20px;
+}
+
+.dashboard__users{
+    flex: 0.5;
+    padding: 10px;
+}
+.dashboard__users__name{
+    margin-top: 15px;
+    font-weight: 600;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
