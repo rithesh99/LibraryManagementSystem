@@ -4,6 +4,7 @@ import Base from '../../shared/Base'
 import './Home.css'
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import { isAuthenticated } from '../../components/auth';
+import { updateUser, updateUserLend } from '../../components/user/helper/helper';
 
 
 function Home() {
@@ -16,7 +17,12 @@ function Home() {
     const onLend = (id) => {
         // event.preventDefault()
         updateBookLend(token,  id, user._id, {lend: {"_id": user._id,"name": user.name}})
+        .then(res => {
+            console.log(res)
+        updateUserLend( {lend: id}, user._id)
         .then(res => console.log(res))
+        .catch(err => console.log(err))
+        })
         .then(res => setLend(!lend))
         .catch(err => console.log(err))
     }
@@ -31,7 +37,7 @@ function Home() {
     return (
         <Base>
             <div className="search__field">
-                <input type="text" onChange={e => setSearch(e.target.value)} />
+                <input type="text" placeholder="Search items..." onChange={e => setSearch(e.target.value)} />
                
             </div>
             <div className="home">

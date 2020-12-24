@@ -105,3 +105,18 @@ export const updateUser = (user,id) => {
     })
     .catch(err => console.log(err));
 };
+
+export const updateUserLend = (user,id) => {
+    return fetch(`${API}/users/${id}`,{
+        method: "PUT",
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(user)
+    })
+    .then(response => {
+        return response.json();
+    })
+    .catch(err => console.log(err));
+};

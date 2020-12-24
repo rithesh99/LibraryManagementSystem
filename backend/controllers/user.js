@@ -50,7 +50,24 @@ exports.updateUser = (req, res) => {
         }   
     )
 }
-
+exports.updateUserLend = (req, res) => {
+    User.findByIdAndUpdate(
+        {_id : req.profile._id},
+        {$push : req.body},
+        {new : true, useFindAndModify : false},
+        (err, user)  => {
+            if(err){
+                return res.status(400).json({
+                    error: "YOU ARE NOT AUTHORIZED TO UPDATE THIS USER"
+                })
+            }
+            user.password = undefined;
+            user.createdAt = undefined;
+            user.updatedAt = undefined;
+            res.json(user);
+        }   
+    )
+}
 exports.deleteUser = (req, res) => { 
     let user = req.profile;
     user.remove((err,user) => {
