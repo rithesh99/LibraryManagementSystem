@@ -10,7 +10,8 @@ import AdminRoute from './components/auth/AdminRoutes';
 import Profile from './components/user/Profile/Profile';
 import AddBook from './components/books/AddBook/AddBook';
 import UpdateBook from './components/books/UpdateBook/UpdateBook';
-import Dashboard from './components/books/Dashboard/Dashboard';
+import Books from './components/books/Books/Books';
+import Users from './components/user/Users/Users';
 
 
 function App() {
@@ -26,7 +27,8 @@ function App() {
       <AdminRoute path="/admin/dashboard"/>
       <AdminRoute path="/admin/books/add" exact component={AddBook} />
       <AdminRoute path="/admin/books/edit/:bookId" exact component={UpdateBook} />
-      <AdminRoute path="/admin/books/" exact component={Dashboard} />
+      <AdminRoute path="/admin/books" exact component={Books} /> 
+      <AdminRoute path="/admin/users" exact component={Users} />
 
       </Switch>  
      </BrowserRouter>

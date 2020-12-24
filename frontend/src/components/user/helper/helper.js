@@ -77,6 +77,20 @@ export const getUser = (userId) => {
     .catch(err => console.log(err));
 };
 
+export const getUsers = () => {
+    return fetch(`${API}/users`,{
+        method: "GET",
+        headers:{
+            Accept: "application/json",
+            "Content-Type": "application/json",
+        },
+    })
+    .then(response => {
+        return response.json();
+    })
+    .catch(err => console.log(err));
+};
+
 export const deleteUser = (id) => {
     return fetch(`${API}/user/${id}`,{
         method: "DELETE",

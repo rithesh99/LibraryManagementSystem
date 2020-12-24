@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import './Dashboard.css'
+import './Books.css'
 import Base from '../../../shared/Base'
 import { getBooks } from '../helper'
 import Card from '../../../shared/Card'
 
-function Dashboard() {
+function Books() {
 
     const [books, setBooks] = useState([])
 
@@ -43,4 +43,4 @@ function Dashboard() {
     )
 }
 
-export default Dashboard;
+export default Books;
